@@ -18,4 +18,40 @@ declare module '*.vue' {
     export default component
 }
 ```
-# 
+# TailwindCss 安装
+1.下载tailwindcss包并初始化
+```cmd
+pnpm install -D tailwindcss@latest postcss@latest autoprefixer@latest
+pnpm tailwindcss init
+```
+2.添加index.css文件并在main.ts中导入
+```css
+--tailwindcss/index.css
+
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+```
+```typescript
+-- main.ts
+import './tailwindcss/index.css'
+
+```
+3.添加tailwindcss配置文件 tailwind.config.js
+```javascript
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{vue,js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+
+
+```
