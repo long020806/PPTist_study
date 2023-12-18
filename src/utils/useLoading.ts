@@ -26,7 +26,7 @@ export const useLoading = () => {
 
   // loadingWrapper方法，自动完成进入/退出loading的设置
   const loadingWrapper = <T>(promise: Promise<T>) => {
-    return new Promise<void>((resolve, reject) => {
+    return new Promise<void>((resolve, _reject) => {
       // 进入loading
       enterLoading();
       promise.finally(() => {
