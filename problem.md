@@ -55,3 +55,33 @@ export default {
 
 
 ```
+
+# tailwind报错  Loading PostCSS Plugin failed: Cannot find module 'tailwindcss'
+```javascript
+
+node:internal/process/promises:289
+            triggerUncaughtException(err, true /* fromPromise */);
+            ^
+
+[Failed to load PostCSS config: Failed to load PostCSS config (searchPath: D:/code/front/project_study/PPTist_study): [Error] Loading PostCSS Plugin failed: Cannot find module 'tailwindcss'
+Require stack:
+- D:\code\front\project_study\PPTist_study\postcss.config.js
+
+(@D:\code\front\project_study\PPTist_study\postcss.config.js)
+Error: Loading PostCSS Plugin failed: Cannot find module 'tailwindcss'
+Require stack:
+- D:\code\front\project_study\PPTist_study\postcss.config.js
+
+(@D:\code\front\project_study\PPTist_study\postcss.config.js)
+    at load (file:///D:/code/front/project_study/PPTist_study/node_modules/.pnpm/vite@4.4.11_@types+node@20.5.1_sass@1.69.1/node_modules/vite/dist/node/chunks/dep-2b82a1ce.js:36424:11)
+    at file:///D:/code/front/project_study/PPTist_study/node_modules/.pnpm/vite@4.4.11_@types+node@20.5.1_sass@1.69.1/node_modules/vite/dist/node/chunks/dep-2b82a1ce.js:36449:16
+    at Array.map (<anonymous>)
+    at plugins (file:///D:/code/front/project_study/PPTist_study/node_modules/.pnpm/vite@4.4.11_@types+node@20.5.1_sass@1.69.1/node_modules/vite/dist/node/chunks/dep-2b82a1ce.js:36448:8)
+    at processResult (file:///D:/code/front/project_study/PPTist_study/node_modules/.pnpm/vite@4.4.11_@types+node@20.5.1_sass@1.69.1/node_modules/vite/dist/node/chunks/dep-2b82a1ce.js:36518:14)
+    at file:///D:/code/front/project_study/PPTist_study/node_modules/.pnpm/vite@4.4.11_@types+node@20.5.1_sass@1.69.1/node_modules/vite/dist/node/chunks/dep-2b82a1ce.js:36642:14]
+
+```
+
+```
+解决方案：tailwindcss未引入package.json导致未安装tailwindcss,重新安装tailwindcss
+```
