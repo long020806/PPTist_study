@@ -1,4 +1,9 @@
 class FetchService {
+    private baseUrl:string = "";
+    constructor(url?:string){
+        let _url = url?url:"";
+        this.baseUrl = _url;
+    }
     private requestInterceptors: Array<(url: string, options: RequestInit) => void> = [];
     private responseInterceptors: Array<(response: Response) => void> = [];
 
@@ -27,6 +32,7 @@ class FetchService {
     }
 
     private async _request<T,U>(method: string, url: string, body?: U): Promise<T> {
+        let _url = `${this.baseUrl}/${url}`
         let options: RequestInit = {
         method: method,
         headers: {
@@ -36,8 +42,8 @@ class FetchService {
         if (body) {
         options.body = JSON.stringify(body);
         }
-        this.runRequestInterceptors(url, options);
-        const response = await fetch(url, options);
+        this.runRequestInterceptors(_url, options);
+        const response = await fetch(_url, options);
         this.runResponseInterceptors(response);
         if (!response.ok) {
         throw new Error(response.statusText);
@@ -56,7 +62,7 @@ class FetchService {
 }
 
 
-const fetchService = new FetchService();
+const fetchService = new FetchService('api');
 
 // 添加一个请求拦截器
 fetchService.addRequestInterceptor((_url, options) => {
