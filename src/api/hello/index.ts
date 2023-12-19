@@ -1,3 +1,5 @@
+import { PageInfo, PageResponseResult, ResponseResult } from '@/type/common';
+import { User } from '@/type/hello';
 import fetchService from '@/utils/FetchService';
 /**
  * helloworld 案例
@@ -11,31 +13,7 @@ const hello_list_url = "/mysql/data/json";
  * 查询用户详情
  */
 const hello_detail_url = "/mysql/data/detail";
-type PageInfo = {
-    page:number,
-    size:number
-}
-type PageResponseResult<T> = {
-    status:string,
-    message:string,
-    data:{
-        page:number,
-        pages:number,
-        total:number,
-        records:Array<T>
-    }
-}
-type ResponseResult<T> = {
-    status:string,
-    message:string,
-    data:Array<T>
-}
 
-export type User = {
-    id:string,
-    username:string,
-    created_at:string
-}
 
 export const hello = ()=>{
     const result = fetchService.get<string>(hello_url);
