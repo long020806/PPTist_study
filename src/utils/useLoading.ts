@@ -43,3 +43,5 @@ export const useLoading = () => {
     loadingWrapper,
   };
 };
+
+export const firstLoadingObj = useLoading();

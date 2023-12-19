@@ -85,3 +85,14 @@ Require stack:
 ```
 解决方案：tailwindcss未引入package.json导致未安装tailwindcss,重新安装tailwindcss
 ```
+# pnpm run dev无反映问题 执行vite命令后退出
+```
+ pnpm run dev
+
+> pptist-study@0.0.0 dev D:\code\front\project_study\PPTist_study
+> vite
+```
+> 升级 Vite： 确保你的项目中使用的 Vite 版本是最新的。你可以运行以下命令更新 Vite
+```javascript
+pnpm install vite@latest
+```
